@@ -4,12 +4,12 @@ describe('unit testing - types and syntax - 1', () => {
     });
 
     test('defines primitive types precisely', () => {
-        expect(typeof 2021).toEqual( /* YOUR ANSWER HERE */ );
-        expect(typeof "2021").toEqual( /* YOUR ANSWER HERE */ );
-        expect(typeof true).toEqual( /* YOUR ANSWER HERE */ );
+        expect(typeof 2021).toEqual( "number" );
+        expect(typeof "2021").toEqual( "string" );
+        expect(typeof true).toEqual( "boolean" );
         let activity = "Bootcamp";
-        expect(typeof activity).toEqual( /* YOUR ANSWER HERE */ );
-        expect(typeof activity.length).toEqual( /* YOUR ANSWER HERE */ );
+        expect(typeof activity).toEqual( "string" );
+        expect(typeof activity.length).toEqual( "number" );
     });
 
     test('defines numbers precisely', () => {
@@ -19,15 +19,15 @@ describe('unit testing - types and syntax - 1', () => {
 
         let amount = 19.95;
 
-        expect(amount).toBeGreaterThan( /* YOUR ANSWER HERE */ );
-        expect(amount).toBeLessThan( /* YOUR ANSWER HERE */ );
+        expect(amount).toBeGreaterThan( 19 );
+        expect(amount).toBeLessThan( 20 );
 
-        expect(Number.isInteger(amount)).toEqual( /* YOUR ANSWER HERE */ );
+        expect(Number.isInteger(amount)).toEqual( false );
 
-        expect(amount.toFixed(1)).toEqual( /* YOUR ANSWER HERE */ );
-        expect(amount.toFixed()).toEqual( /* YOUR ANSWER HERE */ );
+        expect(amount.toFixed(1)).toEqual( "19.9" );
+        expect(amount.toFixed()).toEqual( "20" );
 
-        expect(amount.toString()).toEqual( /* YOUR ANSWER HERE */ );
+        expect(amount.toString()).toEqual( "19.95" );
     });
 
     test('converting to number types', () => {
@@ -35,15 +35,15 @@ describe('unit testing - types and syntax - 1', () => {
         let amount = 19.95,
             stringAmount = "19.95";
 
-        expect(Number(stringAmount)).toEqual( /* YOUR ANSWER HERE */ );
-        expect(Number(true)).toEqual( /* YOUR ANSWER HERE */ );
-        expect(Number(false)).toEqual( /* YOUR ANSWER HERE */ );
+        expect(Number(stringAmount)).toEqual( 19.95 );
+        expect(Number(true)).toEqual( 1 );
+        expect(Number(false)).toEqual( 0 );
 
-        expect(parseInt(amount)).toEqual( /* YOUR ANSWER HERE */ );
-        expect(parseInt(stringAmount)).toEqual( /* YOUR ANSWER HERE */ );
+        expect(parseInt(amount)).toEqual( 19 );
+        expect(parseInt(stringAmount)).toEqual( 19 );
 
-        expect(parseFloat(amount)).toEqual( /* YOUR ANSWER HERE */ );
-        expect(parseFloat(stringAmount)).toEqual( /* YOUR ANSWER HERE */ );
+        expect(parseFloat(amount)).toEqual( 19.95 );
+        expect(parseFloat(stringAmount)).toEqual( 19.95 );
     });
 
     test('defines strings precisely', () => {
@@ -58,15 +58,15 @@ describe('unit testing - types and syntax - 1', () => {
 
         let name = "Zakk Wylde";
 
-        expect(name.length).toEqual( /* YOUR ANSWER HERE */ );
-        expect(name.toLowerCase()).toEqual( /* YOUR ANSWER HERE */ );
-        expect(name.charAt(5)).toEqual( /* YOUR ANSWER HERE */ );
-        expect(name.substring(0,4)).toEqual( /* YOUR ANSWER HERE */ );
+        expect(name.length).toEqual( 10 );
+        expect(name.toLowerCase()).toEqual( "zakk wylde" );
+        expect(name.charAt(5)).toEqual( "W" );
+        expect(name.substring(0,4)).toEqual( "Zakk" );
 
         // chaining methods
 
-        expect(name.toLowerCase().substring(0,4)).toEqual( /* YOUR ANSWER HERE */ );
-        expect(name.toUpperCase().substring(1,2)).toEqual( /* YOUR ANSWER HERE */ );
+        expect(name.toLowerCase().substring(0,4)).toEqual( "zakk" );
+        expect(name.toUpperCase().substring(1,2)).toEqual( "A" );
     });
 
     test('finding substrings in a string', () => {
@@ -82,10 +82,10 @@ describe('unit testing - types and syntax - 1', () => {
 
         let name = "Zakk Wylde";
 
-        expect(name.indexOf("Wylde")).toEqual( /* YOUR ANSWER HERE */ );
-        expect(name.search("Zakk")).toEqual( /* YOUR ANSWER HERE */ );
-        expect(name.slice(5,10)).toEqual( /* YOUR ANSWER HERE */ );
-        expect(name.substr(0,4)).toEqual( /* YOUR ANSWER HERE */ );
+        expect(name.indexOf("Wylde")).toEqual( 5 );
+        expect(name.search("Zakk")).toEqual( 0 );
+        expect(name.slice(5,10)).toEqual( "Wylde" );
+        expect(name.substr(0,4)).toEqual( "Zakk" );
     });
 
     test('manipulating strings', () => {
@@ -107,12 +107,12 @@ describe('unit testing - types and syntax - 1', () => {
             reallyMessyText = "   Some really messy text     ",
             ringOfFire = "And it burns, burns, burns - the ring of fire, the ring of fire.";
 
-        expect(name.replace("Lennon", "R. Cash")).toEqual( /* YOUR ANSWER HERE */ );
-        expect(firstName.concat(" ", secondName)).toEqual( /* YOUR ANSWER HERE */ );
-        expect(reallyMessyText.trim()).toEqual( /* YOUR ANSWER HERE */ );
-        expect(ringOfFire.split(",")[2].trim()).toEqual( /* YOUR ANSWER HERE */ );
-        expect(ringOfFire.split("-")[1].trim()).toEqual( /* YOUR ANSWER HERE */ );
-        expect(ringOfFire.split(" ")[0].trim()).toEqual( /* YOUR ANSWER HERE */ );
+        expect(name.replace("Lennon", "R. Cash")).toEqual( "John R. Cash" );
+        expect(firstName.concat(" ", secondName)).toEqual( "Johnny Cash" );
+        expect(reallyMessyText.trim()).toEqual( "Some really messy text" );
+        expect(ringOfFire.split(",")[2].trim()).toEqual( "burns - the ring of fire" );
+        expect(ringOfFire.split("-")[1].trim()).toEqual( "the ring of fire, the ring of fire." );
+        expect(ringOfFire.split(" ")[0].trim()).toEqual( "And" );
     });
 
     test('defines arrays precisely', () => {
@@ -127,14 +127,14 @@ describe('unit testing - types and syntax - 1', () => {
                 cars instanceof Function
             ];
 
-        expect(cars.length).toEqual( /* YOUR ANSWER HERE */ );
-        expect(cars[2]).toEqual( /* YOUR ANSWER HERE */ );
-        expect(cars.indexOf("Volvo")).toEqual( /* YOUR ANSWER HERE */ );
-        expect(typeof cars).toEqual( /* YOUR ANSWER HERE */ );
-        expect(Array.isArray(cars)).toEqual( /* YOUR ANSWER HERE */ );
+        expect(cars.length).toEqual( 3 );
+        expect(cars[2]).toEqual( "BMW" );
+        expect(cars.indexOf("Volvo")).toEqual( 1 );
+        expect(typeof cars).toEqual( "object" );
+        expect(Array.isArray(cars)).toEqual( true );
 
         /* SWAP THE INDEX 99 TO THE CORRECT VALUE */
-        expect(instances[99]).toEqual(true);
+        expect(instances[4]).toEqual(true);
     });
 
     test('array manipulations', () => {
@@ -156,24 +156,24 @@ describe('unit testing - types and syntax - 1', () => {
 
         cars.push("Audi");
         cars.unshift("Porsche");
-        expect(cars.length).toEqual( /* YOUR ANSWER HERE */ );
-        expect(cars.indexOf("Audi")).toEqual( /* YOUR ANSWER HERE */ );
-        expect(cars.indexOf("Porsche")).toEqual( /* YOUR ANSWER HERE */ );
+        expect(cars.length).toEqual( 5 );
+        expect(cars.indexOf("Audi")).toEqual( 4 );
+        expect(cars.indexOf("Porsche")).toEqual( 0 );
 
         cars[1] = "Ferrari";
 
-        expect(cars.includes("Ferrari")).toEqual( /* YOUR ANSWER HERE */ );
-        expect(cars.includes("Saab")).toEqual( /* YOUR ANSWER HERE */ );
-        expect(cars.indexOf("Saab")).toEqual( /* YOUR ANSWER HERE */ );
+        expect(cars.includes("Ferrari")).toEqual( true );
+        expect(cars.includes("Saab")).toEqual( false );
+        expect(cars.indexOf("Saab")).toEqual( -1 );
 
         // easy way for checking the last element of an array: Array.length - 1
         cars.pop();
-        expect(cars[cars.length - 1]).toEqual( /* YOUR ANSWER HERE */ );
+        expect(cars[cars.length - 1]).toEqual( "BMW" );
 
         cars.shift();
-        expect(cars[0]).toEqual( /* YOUR ANSWER HERE */ );
+        expect(cars[0]).toEqual( "Ferrari" );
 
-        expect(cars.join()).toEqual( /* YOUR ANSWER HERE */ );
+        expect(cars.join()).toEqual( "Ferrari,Volvo,BMW" );
     });
 
     test('advanced array manipulations', () => {
@@ -186,7 +186,7 @@ describe('unit testing - types and syntax - 1', () => {
         // You can fix this by providing a "compare function".
 
         let reverseCompareFunction = function(a, b){
-            /* ... */
+            return Number.parseInt(b) - Number.parseInt(a);
         }
 
         // A function that defines an alternative sort order. The function should return a negative, zero, or positive value, depending on the arguments, like:
@@ -203,13 +203,13 @@ describe('unit testing - types and syntax - 1', () => {
             stringNumbers  = ["25", 8, "100", 10, 25, "42", "8"];
 
 
-        expect(cars.indexOf("BMW")).toEqual( /* YOUR ANSWER HERE */ );
+        expect(cars.indexOf("BMW")).toEqual( 2 );
 
         cars.sort();
-        expect(cars.indexOf("BMW")).toEqual( /* YOUR ANSWER HERE */ );
+        expect(cars.indexOf("BMW")).toEqual( 1 );
 
         cars.reverse();
-        expect(cars.indexOf("BMW")).toEqual( /* YOUR ANSWER HERE */ );
+        expect(cars.indexOf("BMW")).toEqual( 3 );
 
         stringNumbers.sort(reverseCompareFunction);
         expect(stringNumbers.indexOf("8")).toEqual(6);
@@ -219,16 +219,16 @@ describe('unit testing - types and syntax - 1', () => {
 
     test('working with maps', () => {
         let myMap = new Map();
-        myMap.set("a", /* YOUR ANSWER HERE */ );
-        myMap.set("b", /* YOUR ANSWER HERE */ );
-        myMap.set("c", /* YOUR ANSWER HERE */ );
+        myMap.set("a", "Hello world" );
+        myMap.set("b", { hello: "world" } );
+        myMap.set("c", 123 );
 
         expect(myMap.get("a")).toEqual("Hello world");
         expect(myMap.get("b")).toEqual({ hello: "world" });
         expect(myMap.get("c")).toEqual(123);
-        expect(myMap.size).toEqual( /* YOUR ANSWER HERE */ );
+        expect(myMap.size).toEqual( 3 );
 
         myMap.delete("c");
-        expect(myMap.size).toEqual( /* YOUR ANSWER HERE */ );
+        expect(myMap.size).toEqual( 2 );
     });
 })
